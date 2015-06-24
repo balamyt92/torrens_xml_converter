@@ -3,16 +3,11 @@
 #include <QTextStream>
 #include <QXmlStreamReader>
 #include <QString>
-#include <QRegExp>
-
-
 #include <QDebug>
-#include <QTextCodec>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    QTextCodec::setCodecForLocale(QTextCodec::codecForName("cp866"));
 
     QFile * in_file = new QFile("input.xml");
     QFile * ou_file = new QFile("out.csv");
@@ -52,7 +47,6 @@ int main(int argc, char *argv[])
         return -3;
     }
 
-    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     QXmlStreamReader xmlRead(in_file);
     QTextStream out(ou_file);
     QTextStream foto(fo_file);
